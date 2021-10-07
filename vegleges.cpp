@@ -868,7 +868,7 @@ int main()
 	auto start = std::chrono::high_resolution_clock::now();
 	Sudoku::setup();
 	string s;
-	fstream file2("top95.txt");
+	fstream file2("easy50.txt");
 
 	while (file2 >> s)
 	{
