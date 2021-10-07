@@ -865,7 +865,7 @@ string generate(int n, string type)
 int main()
 {
 	srand(time(NULL));
-	// auto start = std::chrono::high_resolution_clock::now();
+	auto start = std::chrono::high_resolution_clock::now();
 	Sudoku::setup();
 	string s;
 	fstream file2("top95.txt");
@@ -877,27 +877,29 @@ int main()
 		if (isSingleSolution(s_egy))
 		{
 			s_egy = solve(s_egy);
-			cout << "Single solution sudoku !" << endl;
+			cout << "Single solution sudoku!" << endl;
 		}
 		else
 		{
-			cout << "Tobb megoldasu !" << endl;
+			cout << "Multiple solution sudoku!" << endl;
 		}
 	}
 
 	// cout << "----------------------------" << endl;
 
-	// string sgen = general(50, "hard");
-	// kiirStringForm(sgen);
+	// Generate random sudoku
 
-	// res = solve(res);
+	// string sgen = generate(50, "hard");
+	// printStringForm(sgen);
+
+	// Sudoku res = solve(res);
 	// res.kiir();
 
 	// cout << "-----------------------------" << endl;
 
-	// auto finish = std::chrono::high_resolution_clock::now();
-	// std::chrono::duration<long double> elapsed = finish - start;
-	// std::cout << "Elapsed time: " << std::setprecision(10) << elapsed.count() << " s\n";
+	auto finish = std::chrono::high_resolution_clock::now();
+	std::chrono::duration<long double> elapsed = finish - start;
+	std::cout << "Elapsed time: " << std::setprecision(10) << elapsed.count() << " s\n";
 
 	return 0;
 }
